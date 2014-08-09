@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 08, 2014 at 11:59 PM
+-- Generation Time: Aug 09, 2014 at 01:44 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -64,8 +64,8 @@ CREATE TABLE IF NOT EXISTS `login` (
 
 INSERT INTO `login` (`sl_number`, `userlevel`, `id`, `username`, `password`, `email`) VALUES
 (1, 2, 10301012, 'Fahmida', '123', 'fahmida.zhn@gmail.com'),
-(2, 3, 10301014, 'Nusrat', '123', 'nusrat.bracu@gmail.com'),
-(3, 1, 10301015, 'Prima', '123', 'prima.tass@gmail.com');
+(2, 3, 10301015, 'Nusrat', '123', 'nusrat.bracu@gmail.com'),
+(3, 1, 10301014, 'Prima', '123', 'prima.tass@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -125,6 +125,11 @@ CREATE TABLE IF NOT EXISTS `teacher_info` (
   `firstname` text NOT NULL,
   `lastname` text NOT NULL,
   `email` varchar(30) NOT NULL,
+  `mobile` int(11) NOT NULL,
+  `fax` int(11) NOT NULL,
+  `gender` text NOT NULL,
+  `addressline1` varchar(20) NOT NULL,
+  `addressline2` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -132,13 +137,13 @@ CREATE TABLE IF NOT EXISTS `teacher_info` (
 -- Dumping data for table `teacher_info`
 --
 
-INSERT INTO `teacher_info` (`id`, `firstname`, `lastname`, `email`) VALUES
-(10301010, 'Maliha', 'Anjum', ''),
-(10301011, 'Aziz', 'Rahman', ''),
-(10301012, 'Fahmida', 'Zahan', ''),
-(10301017, 'Sadia', 'Afrin', 'sdafrin@gmail.com'),
-(10301018, 'Shayekh', 'Ahmed', ''),
-(10321003, 'Amanna', 'Nawshin', 'nawshin.amanna@gmail.com');
+INSERT INTO `teacher_info` (`id`, `firstname`, `lastname`, `email`, `mobile`, `fax`, `gender`, `addressline1`, `addressline2`) VALUES
+(10301000, 'Bayzid', 'Mostofa', 'bayzid_mostofa@yahoo.com', 1920787929, 29512100, 'Male', 'House-2 Street-14 se', 'Lake Circus'),
+(10301011, 'Aziz', 'Rahman', 'aziz@gmail.com', 1671024312, 95121073, 'Male', 'Sector 3 North Tower', 'Uttara'),
+(10301012, 'Fahmida', 'Zahan', 'fahmida.zhn@gmail.com', 1928370882, 95121073, 'Female', 'House-10 Road-16', 'Nikunja-2'),
+(10301014, 'Nusrat', 'Mahmud', 'nusrat.bracu@gmail.com', 1671040338, 95121073, 'Female', 'Apartment-65 Shelter', 'Shyamoli'),
+(10301017, 'Sadia', 'Afrin', 'sadia@gmail.com', 1928370882, 95121073, 'Female', 'House-10 Road-16', 'Nikunja-2'),
+(10321003, 'Amanna', 'Nawshin', 'nawshin.amanna@gmail.com', 1724684988, 25232110, 'Female', 'House14 Army Housing', 'Cantonment');
 
 -- --------------------------------------------------------
 
