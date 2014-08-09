@@ -21,7 +21,7 @@ if(isset($_POST['signup'])){
 	$mname    = mysql_real_escape_string($_POST['m-name']);
 	$lname    = mysql_real_escape_string($_POST['l-name']);
 	$fa_name    = mysql_real_escape_string($_POST['father_name']);
-	$fa_name    = mysql_real_escape_string($_POST['mother_name']);
+	$ma_name    = mysql_real_escape_string($_POST['mother_name']);
 	$gender    = mysql_real_escape_string($_POST['gender']);
 	$nationality    = mysql_real_escape_string($_POST['nationality']);
 	$religion    = mysql_real_escape_string($_POST['religion']);
@@ -36,6 +36,16 @@ if(isset($_POST['signup'])){
 	if(empty($fname)){$action['result'] = 'error'; array_push($text, 'You forgot your First Name');}
 	//if($mname){$action['result']        = 'error'; array_push($text, 'You forgot your Middle Name');}
 	if(empty($lname)){$action['result'] = 'error'; array_push($text, 'You forgot your Last Name');}
+	
+	if(empty($fa_name)){$action['result'] = 'error'; array_push($text, 'You forgot your Father Name');}
+	
+	if(empty($ma_name)){$action['result'] = 'error'; array_push($text, 'You forgot your Mother Name');}
+	if(empty($gender)){$action['result'] = 'error'; array_push($text, 'You forgot your gender');}
+	if(empty($nationality)){$action['result'] = 'error'; array_push($text, 'You forgot your Nationality');}
+	if(empty($religion)){$action['result'] = 'error'; array_push($text, 'You forgot your Religion');}
+	if(empty($bloodgroup)){$action['result'] = 'error'; array_push($text, 'You forgot your Blood group');}
+	if(empty($phoneno)){$action['result'] = 'error'; array_push($text, 'You forgot your Phone no');}
+	if(empty($permanentaddress)){$action['result'] = 'error'; array_push($text, 'You forgot your Permanent Address');}
 	if(empty($password)){ $action['result'] = 'error'; array_push($text,'You forgot your password'); }
 	if(empty($email)){ $action['result'] = 'error'; array_push($text,'You forgot your email'); }
 	if($captcha != '13') {$action['result'] ='error'; array_push($text, 'Attention! Are you not human?');}
@@ -53,9 +63,9 @@ if(isset($_POST['signup'])){
 	 $password = sha1($salt .  $password);
 	 // Insert user into the database
 	  $query = "INSERT INTO `users` 
-	            ( `first_name`,  `last_name`,  `email`,  `salt`,  `password`)
+	            ( `first_name`, `m_name`, `last_name`, `father_name`, `mother_name`, `gender`,  `nationality`, `religion`, `blood_group`, `phone_no`, `permanent_address`, `email`,  `salt`,  `password`)
 	            VALUES
-	            ('$fname', '$lname', '$email', '$salt', '$password')";
+	            ('$fname', '$mname', '$lname', '$fa_name', '$ma_name', '$gender',  '$nationality', '$religion', '$bloodgroup', '$phoneno', '$permanentaddress', '$email', '$salt', '$password')";
 	 
 	   $result = mysql_query($query);
 	 
@@ -76,7 +86,7 @@ if(isset($_POST['signup'])){
   
   <div class="box">
      <h2>Register</h2>
-   <form method="post" action="">
+   <form method="post" action="register.php">
    
    <div class="login-form">
         

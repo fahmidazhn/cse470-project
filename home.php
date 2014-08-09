@@ -12,33 +12,14 @@ body,td,th {
 	font-size: 36px;
 }
 </style>
+<div class="button" >
+ <?php include 'button.php'; ?>
+ </div>
 
- <html>
- <style type="text/css" media="screen">
-     table { width: 620px; border: 1px solid;float:right; padding: 1px;}
-     th, td {  border: 1px solid; padding: 10px;
-               text-align: left; }
-  a:link {
-	color: #000;
-}
-a:visited {
-	color: #006;
-}
- </style>
-<table>
-    <tr>
-      <th><?php include 'button.php'; ?></th> 
-    </tr>
-    
-    
-</table>
-
-</html>
-
-
-
+<h1>&nbsp;</h1>
 <h1>Welcome <?php echo $current_user['first_name'];
- ?></h1>
-<p>&nbsp;</p>
-<?php include 'footer.php'; ?>
+ ?>
+</h1>
+
+  <?php include 'footer.php'; ?>
 

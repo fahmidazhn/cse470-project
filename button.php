@@ -1,9 +1,6 @@
+<?php
 
 
-  <?php
-  
-echo '<a  href="/teacherlist.php" target="_blank">Personal Information </a> </br>
-</br>
-</br>
+echo '<a href="/info.php">Personal Information |||| </a> 
 <a href="info.php"> Educational Information</a>';
 ?>
