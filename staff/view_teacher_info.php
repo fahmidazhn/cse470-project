@@ -64,21 +64,42 @@ display:none;
  
 </head>
 <body>
-<h2 style="padding-left: 14px;"><a>Dashboard</a></h2>
+<h2 style="padding-left: 14px;"><a href="index_logged.php">Dashboard</a></h2>
 <h4 style=" text-align:right; color:#039; padding-right: 14px;">You are logged in as <?php 
 $username= $_SESSION["sess_username"];
 echo $username;
 ?> !</h4>
-    <div id="form" style=" padding-left:140px; padding-right:20px; float:left; color:#06F;">
-    <h3 style="color:#C33"> Welcome!</h3><br>
-    <div style="padding-left:18px;">
-    <li><a href="personal_info.php">Personal Info</a></li><br>
-    <li><a href="educational_info.php">Educational Info</a></li><br>
-    <li><a href="contact_info.php">Contact Info</a></li><br>
-
-</div>
+        <div id="form" style=" padding-left:140px; padding-right:20px; color:#039; text-align:left; float:left; padding-top:20px;"><h3 style="color:#090;">Account Information</h3><br><br>  
     
-    </div>
+    <?php
+    $db = mysql_connect("localhost", "root", "") or die(mysql_error());
+    mysql_select_db ("school_database", $db);
+	$id = mysql_real_escape_string($_POST['id']);			
+	$query = mysql_query("SELECT * FROM teacher_info WHERE id = '$id'");
+	
+	
+		if (mysql_num_rows($query) > 0) {
+			$result = mysql_fetch_array($query);
+		echo "<b>Username :</b> &nbsp".$result['firstname']."&nbsp;".$result['lastname']."<br><br>";
+		echo "<b>ID :</b> &nbsp".$result['id']."<br><br>";		
+		echo "<b>First Name :</b> &nbsp".$result['firstname']."<br><br>";
+		echo "<b>Last Name :</b> &nbsp".$result['lastname']."<br><br>";
+		echo "<b>Email :</b> &nbsp".$result['email']."<br><br>";
+		
+	} else {
+		echo "<p>User ID Doesnot Exists!</p>";
+	}
+?>
+
+<form action="view_teacher.php" method="post" enctype="application/x-www-form-urlencoded">
+<dl>
+<dt>
+ <br><br>  <input type="submit" name="backBtn" value="Back" onClick="view_teacher.php" class="button" /></dt>
+    </dl>
+    </form>
+
+</div>    
+    
 <div style="width:380px; float:right; padding-right:14px;">
 
 <div id="flip1"><h4>OFFICE OF THE PRINCIPAL</h4></div>
@@ -149,3 +170,4 @@ echo $username;
 </div>   
 </body>
 </html>
+

@@ -38,6 +38,6 @@ $db = mysql_connect("localhost", "root", "") or die(mysql_error());
     </form>
 
 
-<form>
+</form>
 </body>
 </html>

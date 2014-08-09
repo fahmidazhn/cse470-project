@@ -67,7 +67,7 @@ echo $username;
 	}
 ?>
 
-<form action="view_current.php" method="post" enctype="application/x-www-form-urlencoded">
+<form action="index_logged.php" method="post" enctype="application/x-www-form-urlencoded">
 <dl>
 <dt>
  <br><br>  <input type="submit" name="backBtn" value="Back" onClick="index_logged.php" class="button" /></dt>
